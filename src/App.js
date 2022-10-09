@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { TaskManager } from "./components/TaskManager";
+import { useReducer } from "react";
+import AlertContextProvider from "./Context/AlertContext";
+import ComponentContextProvider from "./Context/ComponentContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ComponentContextProvider>
+        <AlertContextProvider>
+          <TaskManager />
+        </AlertContextProvider>
+      </ComponentContextProvider>
     </div>
   );
 }
